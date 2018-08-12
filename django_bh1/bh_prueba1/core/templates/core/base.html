@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1"> 
+      <title>{% block title %}{% endblock %}</title>
+        {% load static %}     
+      <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">   
+      <link href="{% static 'core/css/main.css' %}" rel="stylesheet">        
+   </head>
+   
+   <body>
+    <!-- Encabezado -->
+      <nav>
+         <div class="nav-wrapper indigo lighten-1">
+            <b href="#" class="brand-logo" style="padding-left: 5%;">B H</b>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                {% if not request.user.is_authenticated %}
+                <li>
+                    <a href="{% url 'login' %}">Acceder</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'logout' %}">Salir</a>
+                </li>
+                {% endif %}
+            </ul>
+         </div>
+      </nav>
+    <!-- Contenido -->
+        {% block content %}{% endblock %}
+    <!-- Pie de Página -->
+      <footer class="page-footer purple lighten-1">
+          <div class="container">
+            <div class="row">
+              <div class="col l12 s12">
+                <h5 class="white-text">BH Solutions</h5>
+                <p class="grey-text text-lighten-4">Un nuevo integrante en tu equipo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2018 Copyright
+            </div>
+          </div>
+        </footer>
+     <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+     <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+     </script>  
+   </body>
+</html>
