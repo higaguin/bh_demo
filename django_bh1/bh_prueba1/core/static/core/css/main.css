@@ -1,4 +1,3 @@
-<<<<<<< HEAD
     .dropdown-content {
         width: 250px !important;
         height: 250px !important;
@@ -28,9 +27,6 @@
     }
     
     .animation_a_app_icons
-=======
-.animation_a_app_icons
->>>>>>> 9bb435229dc21a275a6376c48f55175fcd25d4dd
       {
           display:inline-block;
           border:0;
@@ -44,12 +40,8 @@
           -moz-transition: all 200ms ease-in;
           -moz-transform: scale(1);
           transition: all 200ms ease-in;
-<<<<<<< HEAD
           transform: scale(1); 
           cursor: pointer;  
-=======
-          transform: scale(1);   
->>>>>>> 9bb435229dc21a275a6376c48f55175fcd25d4dd
       }
 
       .animation_a_app_icons > i
@@ -72,7 +64,6 @@
           transform: scale(1.3);
           color: #FFFFFF;
           background-color: #7986cb;
-<<<<<<< HEAD
       }
 
     .animation_mini_a_app_icons {
@@ -127,6 +118,3 @@
     .parallax-container {
         height: 400px;
     }
-=======
-      }
->>>>>>> 9bb435229dc21a275a6376c48f55175fcd25d4dd
