@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from core import views
+<<<<<<< HEAD
 from user.urls import user_patterns
+=======
+>>>>>>> 9bb435229dc21a275a6376c48f55175fcd25d4dd
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -25,5 +28,9 @@ urlpatterns = [
 
     # path('accounts/login/', auth_views.LoginView.as_view()),
     path('accounts/', include('django.contrib.auth.urls')),
+<<<<<<< HEAD
     path('user/', include(user_patterns)),
+=======
+    # path('accounts/', include('registration.urls')),
+>>>>>>> 9bb435229dc21a275a6376c48f55175fcd25d4dd
 ]

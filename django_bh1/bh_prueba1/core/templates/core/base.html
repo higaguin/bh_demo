@@ -5,14 +5,19 @@
       <title>{% block title %}{% endblock %}</title>
         {% load static %}     
       <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+<<<<<<< HEAD
       <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">  
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+=======
+      <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">   
+>>>>>>> 9bb435229dc21a275a6376c48f55175fcd25d4dd
       <link href="{% static 'core/css/main.css' %}" rel="stylesheet">        
    </head>
    
    <body>
     <!-- Encabezado -->
+<<<<<<< HEAD
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper indigo lighten-1">
@@ -97,6 +102,24 @@
       </div>
     </ul>
 
+=======
+      <nav>
+         <div class="nav-wrapper indigo lighten-1">
+            <b href="#" class="brand-logo" style="padding-left: 5%;">B H</b>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                {% if not request.user.is_authenticated %}
+                <li>
+                    <a href="{% url 'login' %}">Acceder</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'logout' %}">Salir</a>
+                </li>
+                {% endif %}
+            </ul>
+         </div>
+      </nav>
+>>>>>>> 9bb435229dc21a275a6376c48f55175fcd25d4dd
     <!-- Contenido -->
         {% block content %}{% endblock %}
     <!-- Pie de Página -->
@@ -115,6 +138,7 @@
             </div>
           </div>
         </footer>
+<<<<<<< HEAD
      <script>
         // var elem = document.querySelector('.sidenav');
         // var instance = M.Sidenav.init(elem, {
@@ -135,5 +159,10 @@
         });
   
       </script>
+=======
+     <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+     <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+     </script>  
+>>>>>>> 9bb435229dc21a275a6376c48f55175fcd25d4dd
    </body>
 </html>
