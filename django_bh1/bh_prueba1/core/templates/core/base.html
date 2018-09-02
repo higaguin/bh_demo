@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1"> 
+      <title>{% block title %}{% endblock %}</title>
+        {% load static %}     
+      <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">  
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+      <link href="{% static 'core/css/main.css' %}" rel="stylesheet">        
+   </head>
+   
+   <body>
+    <!-- Encabezado -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper indigo lighten-1">
+           <b href="#" class="brand-logo" style="padding-left: 5%;">B H</b>
+           <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a data-target="dropdown1" class='dropdown-trigger' href='#'><i class="material-icons">apps</i></a></li>
+               {% if not request.user.is_authenticated %}
+               <li>
+                   <a href="{% url 'login' %}">Acceder</a>
+               </li>
+               {% else %}
+               <li class="nav-item">
+                 <a class="nav-link" href="{% url 'user:user_account' %}">Usuario</a>
+               </li>
+               <li>
+                   <a href="{% url 'logout' %}">Salir</a>
+               </li>
+               {% endif %}
+           </ul>
+        </div>
+     </nav>
+    </div>
+
+    <!-- Menú de lado -->
+    {% if request.path != '/' %}
+    <ul class="sidenav sidenav-fixed" id="mobile-nav">
+      <li>
+        <div class="user-view">
+          <div class="background">
+            <img src="https://materializecss.com/images/office.jpg">
+          </div>
+          <a href="#user">
+                   <img class="circle" src="https://pbs.twimg.com/profile_images/992911914496876545/jSrHpqDO_400x400.jpg">
+                 </a>
+          <a href="#name">
+                   <span class="white-text name">Alexei Horta</span>
+                 </a>
+          <a href="#email">
+                   <span class="white-text email">ahorta@gmail.com</span>
+                 </a>
+        </div>
+      </li>
+    </ul>
+    {% endif %}
+
+    <!-- Mini Módulos -->
+    <ul id='dropdown1' class='dropdown-content'>
+      <div style="padding-right:10%; ">
+        <div class="row">
+          <div class="col s4 center-align">
+            <div class="animation_mini_a_app_icons"><i class="small material-icons">settings</i></div>
+          </div>
+          <div class="col s4 center-align">
+            <div class="animation_mini_a_app_icons"><i class="small material-icons ">face</i></div>
+          </div>
+          <div class="col s4 center-align">
+            <div class="animation_mini_a_app_icons"><i class="small material-icons ">account_balance</i></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s4 center-align">
+            <div class="animation_mini_a_app_icons"><i class="small material-icons">business</i></div>
+          </div>
+          <div class="col s4 center-align">
+            <div class="animation_mini_a_app_icons"><i class="small material-icons ">show_chart</i></div>
+          </div>
+          <div class="col s4 center-align">
+            <div class="animation_mini_a_app_icons"><i class="small material-icons ">group</i></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s4 center-align">
+            <div class="animation_mini_a_app_icons"><i class="small material-icons">language</i></div>
+          </div>
+          <div class="col s4 center-align">
+            <div class="animation_mini_a_app_icons"><i class="small material-icons ">landscape</i></div>
+          </div>
+          <div class="col s4 center-align">
+            <div class="animation_mini_a_app_icons"><i class="small material-icons ">attach_money</i></div>
+          </div>
+        </div>
+      </div>
+    </ul>
+
+    <!-- Contenido -->
+        {% block content %}{% endblock %}
+    <!-- Pie de Página -->
+      <footer class="page-footer purple lighten-1">
+          <div class="container">
+            <div class="row">
+              <div class="col l12 s12">
+                <h5 class="white-text">BH Solutions</h5>
+                <p class="grey-text text-lighten-4">Un nuevo integrante en tu equipo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2018 Copyright
+            </div>
+          </div>
+        </footer>
+     <script>
+        // var elem = document.querySelector('.sidenav');
+        // var instance = M.Sidenav.init(elem, {
+        //   onOpenStart: function() {
+        //     console.log("I trigger as soon as the page is loaded");
+        //   },
+        //   onCloseEnd: function() {
+        //     console.log("same");
+        //   }
+        // });
+  
+        $(document).ready(function() {
+          $('.parallax').parallax();
+          $('.dropdown-trigger').dropdown({
+            alignment: 'left',
+            coverTrigger: false,
+          });
+        });
+  
+      </script>
+   </body>
+</html>
