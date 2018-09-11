@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from core import views
 from user.urls import user_patterns
+from clients.urls import client_patterns
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -26,4 +27,5 @@ urlpatterns = [
     # path('accounts/login/', auth_views.LoginView.as_view()),
     path('accounts/', include('django.contrib.auth.urls')),
     path('user/', include(user_patterns)),
+    path('clients/', include(client_patterns)),
 ]

@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}{% block footer_color %}teal lighten-2{% endblock %}{% load static %} {% block title %}Inicio{% endblock %} {% block content %}
+{% block auxiliar_css %}<link rel="stylesheet" href="{% static 'core/css/clients.css' %}" />{% endblock %}
+
+<nav>
+    <div class="nav-wrapper teal lighten-2">
+      <div class="container">
+        <b href="#" class="brand-logo">Clientes</b>
+      </div>
+    </div>
+ </nav>
+    <div id="wrapper">
+        <div class="container">
+            <div class="row">
+                {% for client in company_list %}
+                    <div class="col s4">
+                        <div class="card horizontal">
+                            <div class="card-image">
+                                <img src="https://lorempixel.com/output/business-q-c-640-480-4.jpg">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <b>{{client.name}}</b>
+                                    <p>{{client.address}}</p>
+                                    <p>{{client.email}}</p>
+                                </div>
+                                <div class="card-action">
+                                    <span class="new badge">2</span>
+                                    <span class="new badge red">4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

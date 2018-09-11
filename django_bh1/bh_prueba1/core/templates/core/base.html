@@ -8,7 +8,8 @@
       <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">  
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-      <link href="{% static 'core/css/main.css' %}" rel="stylesheet">        
+      <link href="{% static 'core/css/main.css' %}" rel="stylesheet">    
+      {% block auxiliar_css %}{% endblock %}    
    </head>
    
    <body>
@@ -16,29 +17,34 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper indigo lighten-1">
-           <b href="#" class="brand-logo" style="padding-left: 5%;">B H</b>
-           <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <div class="container">
+            <b href="#" class="brand-logo">B H</b>
+          </div>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large">
+                <i class="material-icons">menu</i></a>
+              </li>
               <li><a data-target="dropdown1" class='dropdown-trigger' href='#'><i class="material-icons">apps</i></a></li>
-               {% if not request.user.is_authenticated %}
-               <li>
-                   <a href="{% url 'login' %}">Acceder</a>
-               </li>
-               {% else %}
-               <li class="nav-item">
-                 <a class="nav-link" href="{% url 'user:user_account' %}">Usuario</a>
-               </li>
-               <li>
-                   <a href="{% url 'logout' %}">Salir</a>
-               </li>
-               {% endif %}
-           </ul>
+              {% if not request.user.is_authenticated %}
+              <li>
+                  <a href="{% url 'login' %}">Acceder</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user:user_account' %}">Usuario</a>
+              </li>
+              <li>
+                  <a href="{% url 'logout' %}">Salir</a>
+              </li>
+              {% endif %}
+          </ul>
         </div>
      </nav>
     </div>
 
     <!-- Menú de lado -->
     {% if request.path != '/' %}
-    <ul class="sidenav sidenav-fixed" id="mobile-nav">
+    <ul class="sidenav" id="slide-out">
       <li>
         <div class="user-view">
           <div class="background">
@@ -100,7 +106,7 @@
     <!-- Contenido -->
         {% block content %}{% endblock %}
     <!-- Pie de Página -->
-      <footer class="page-footer purple lighten-1">
+      <footer class="page-footer {% block footer_color %}{% endblock %}">
           <div class="container">
             <div class="row">
               <div class="col l12 s12">
@@ -132,6 +138,7 @@
             alignment: 'left',
             coverTrigger: false,
           });
+          $('.sidenav').sidenav();
         });
   
       </script>
