@@ -11,6 +11,6 @@ class ClientListView(ListView):
     # paginate_by = 2
 
 class ClientUpdate(UpdateView):
+    form_class = CompanyForm
     model = Company
-    fields = ['name', 'address', 'second_adress']
     template_name_suffix = '_update_form'

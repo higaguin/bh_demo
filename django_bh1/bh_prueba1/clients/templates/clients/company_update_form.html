@@ -12,8 +12,8 @@
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                <li class="tab col s3"><a href="#test1">Test 1</a></li>
-                <li class="tab col s3"><a class="active">Test 2</a></li>
+                <li class="tab col s3"><a class="active" href="#test1">Test 1</a></li>
+                <li class="tab col s3"><a>Test 2</a></li>
                 <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
                 <li class="tab col s3"><a href="#test4">Test 4</a></li>
                 </ul>
@@ -34,12 +34,36 @@
                         </div>
                         <div class="row">
                             <div class="input-field col m6">
-                                <input id="address" type="text" class="validate" value="{{company.address}}">
-                                <label for="address">Dirección</label>
+                                {{ form.address }}
+                                <label for="{{form.address.name}}">{{form.address.label}}</label>
                             </div>
                             <div class="input-field col m6">
-                                <input id="second_adress" type="text" class="validate" value="{{company.second_adress}}">
-                                <label for="second_adress">Segunda Dirección</label>
+                                {{ form.second_adress }}
+                                <label for="{{ form.second_adress.name }}">{{form.second_adress.label}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col m3">
+                                {{ form.city }}
+                                <label for="{{ form.city.name }}">{{form.city.label}}</label>
+                            </div>
+                            <div class="input-field col m3">
+                                {{ form.rfc }}
+                                <label for="{{ form.rfc.name }}">{{form.rfc.label}}</label>
+                            </div>
+                            <div class="input-field col m3">
+                                {{ form.mobile }}
+                                <label for="{{ form.mobile.name }}">{{form.mobile.label}}</label>
+                            </div>
+                            <div class="input-field col m3">
+                                {{ form.email }}
+                                <label for="{{ form.email.name }}">{{form.email.label}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col m6">
+                                {{ form.website }}
+                                <label for="{{ form.website.name }}">{{form.website.label}}</label>
                             </div>
                         </div>
                     </div>
