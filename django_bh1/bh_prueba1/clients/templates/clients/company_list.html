@@ -19,7 +19,7 @@
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
-                                    <b>{{client.name}}</b>
+                                    <a href="{% url 'clients:update' client.id %}"><b>{{client.name}}</b></a>
                                     <p>{{client.address}}</p>
                                     <p>{{client.email}}</p>
                                 </div>

@@ -12,6 +12,6 @@ class CompanyForm(forms.ModelForm):
             'city': forms.Textarea(attrs={'class':'validate'}),
             'rfc': forms.Textarea(attrs={'class':'validate'}),
             'mobile': forms.Textarea(attrs={'class':'validate'}),
-            'email': forms.EmailField(attrs={'class':'validate'}),
+            # 'email': forms.EmailField(attrs={'class':'validate'}),
             'website': forms.URLInput(attrs={'class':'validate'}),
         }

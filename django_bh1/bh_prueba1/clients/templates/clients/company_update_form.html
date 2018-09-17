@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %}{% block footer_color %}teal lighten-2{% endblock %}{% load static %} {% block title %}Inicio{% endblock %} {% block content %}
+{% block auxiliar_css %}<link rel="stylesheet" href="{% static 'core/css/clients.css' %}" />{% endblock %}
+<nav>
+    <div class="nav-wrapper teal lighten-2">
+      <div class="container">
+        <b href="#" class="brand-logo">Clientes</b>
+      </div>
+    </div>
+ </nav>
+ <div id="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                <li class="tab col s3"><a href="#test1">Test 1</a></li>
+                <li class="tab col s3"><a class="active">Test 2</a></li>
+                <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+                <li class="tab col s3"><a href="#test4">Test 4</a></li>
+                </ul>
+            </div>
+            <div id="test1" class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input id="client_name" type="text" class="validate" value="{{company.name}}">
+                                <label for="client_name">Cliente</label>
+                            </div>
+                            <div class="col s12 m6 center">
+                                <img src="https://pbs.twimg.com/profile_images/992911914496876545/jSrHpqDO_400x400.jpg" alt="" class="responsive-img circle" style="width: 40px;margin-left:10px;">
+                                <p>Posted By Alexei Horta</p>
+                                <p>On Jan, 12, 2018</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col m6">
+                                <input id="address" type="text" class="validate" value="{{company.address}}">
+                                <label for="address">Dirección</label>
+                            </div>
+                            <div class="input-field col m6">
+                                <input id="second_adress" type="text" class="validate" value="{{company.second_adress}}">
+                                <label for="second_adress">Segunda Dirección</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
