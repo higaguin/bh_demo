@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from .models import Company
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView
+from django.urls import reverse, reverse_lazy
 from .forms import CompanyForm
 
 # Create your views here.
@@ -14,3 +15,6 @@ class ClientUpdate(UpdateView):
     form_class = CompanyForm
     model = Company
     template_name_suffix = '_update_form'
+
+    def get_success_url(self):
+        return reverse_lazy('clients:update', args=[self.object.id]) + '?ok'

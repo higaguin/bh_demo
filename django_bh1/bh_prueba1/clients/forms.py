@@ -12,15 +12,18 @@ class CompanyForm(forms.ModelForm):
             'second_adress': forms.Textarea(attrs={'class':'materialize-textarea'}),
             'city': forms.TextInput(attrs={'class':'validate'}),
             'rfc': forms.TextInput(attrs={'class':'validate'}),
+            'phone': forms.TextInput(attrs={'class':'validate phone'}),
             'mobile': forms.TextInput(attrs={'class':'validate phone'}),
             'email': forms.EmailInput(attrs={'class':'validate'}),
             'website': forms.URLInput(attrs={'class':'validate'}),
         }
         labels = { 
+            'name': _('Cliente'), 
             'address': _('Dirección'), 
             'addsecond_adressress': _('Segunda Dirección'), 
             'city': _('Ciudad'), 
             'rfc': _('RFC'), 
+            'phone': _('Teléfono'), 
             'mobile': _('Celular'), 
             'email': _('Correo Electrónico'), 
             'website': _('Sitio Web'), 
